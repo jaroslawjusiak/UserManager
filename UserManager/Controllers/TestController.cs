@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UserManager.Model;
 using UserManager.Tools;
@@ -12,6 +13,14 @@ namespace UserManager.Controllers
     [Route("/api/[controller]")]
     public class TestController : ControllerBase
     {
+        [HttpGet]
+        [Authorize]
+        [Route("Test")]
+        public IActionResult GetAuthorizedValue()
+        {
+            return Ok(88);
+        }
+
         [HttpGet]
         [Route("Token")]
         public IActionResult Token()
