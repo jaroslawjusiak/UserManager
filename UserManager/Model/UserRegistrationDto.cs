@@ -13,5 +13,9 @@ namespace UserManager.Model
         [Required]
         public string LastName { get; set; }
         public string Email { get; set; }
+        [Required]
+        public string Login { get; set; }
+        [Required]
+        public string Password { get; set; }
     }
 }

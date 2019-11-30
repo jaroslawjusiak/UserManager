@@ -8,6 +8,15 @@ namespace UserManager.Data
 {
     public class DbContext
     {
-        public List<User> Users { get; set; }
+        private List<User> _users;
+
+        public DbContext()
+        {
+            _users = new List<User>();
+        }
+        public List<User> Users
+        {
+            get { return _users; }
+        }
     }
 }
