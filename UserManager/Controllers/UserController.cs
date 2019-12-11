@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using UserManager.Data;
 using UserManager.Model;
+using UserManager.Tools;
 
 namespace UserManager.Controllers
 {
@@ -54,6 +55,8 @@ namespace UserManager.Controllers
             var user = _context.Users.FirstOrDefault(u => u.Login == login);
             if (user == null || user.Password != password)
                 return BadRequest("Invalid login or password");
+            var token = TokenGenerator.Generate();
+            user.Token = token;
 
             return Ok();
         }
