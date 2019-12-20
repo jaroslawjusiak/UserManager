@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using UserManager.Data;
+using UserManager.Middleware;
 
 namespace UserManager
 {
@@ -37,6 +38,7 @@ namespace UserManager
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSimpleAuthMiddleware();
 
             app.UseHttpsRedirection();
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UserManager.Data;
 using UserManager.Model;
@@ -58,7 +59,21 @@ namespace UserManager.Controllers
             var token = TokenGenerator.Generate();
             user.Token = token;
 
-            return Ok();
+            return Ok(token);
+        }
+
+        [HttpGet]
+        [Route("{id:Guid}")]
+        public IActionResult Get(Guid id)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Uid == id);
+            return Ok(user);
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Ok(_context.Users);
         }
     }
 }

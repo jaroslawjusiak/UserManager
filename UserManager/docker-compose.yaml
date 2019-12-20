@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  usermanager:
+    image: kaisuj/usermanager
+    build:
+      dockerfile: dockerfile
