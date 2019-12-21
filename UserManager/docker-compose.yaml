@@ -3,5 +3,8 @@ version: '3'
 services:
   usermanager:
     image: kaisuj/usermanager
+    ports:
+      - "1005:5001"
     build:
+      context: .
       dockerfile: dockerfile
