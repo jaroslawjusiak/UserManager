@@ -3,15 +3,19 @@ version: '3'
 services:
   usermanager:
     environment:
+      - COMPOSE_CONVERT_WINDOWS_PATHS=1
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:5001;http://+:5000
-      - ASPNETCORE_Kestrel__Certificates__Default__Password="pass123"
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=\app\cert.pfx
+      - ASPNETCORE_URLS="https://+;http://+"
+      - ASPNETCORE_HTTPS_PORT=5001
+      - ASPNETCORE_Kestrel__Certificates__Default__Password="crypticpassword"
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
     image: kaisuj/usermanager
     ports:
-      - "1005:5001"
-      - "1000:5000"
-      - "8080:80"
+      - "5001:443"
+      - "5000:80"
     build:
       context: .
       dockerfile: dockerfile
+    volumes: 
+      - E:\\https:/https:ro
+      #- C:\\Users\\kaisu\\.aspnet\\https:/https/:rw

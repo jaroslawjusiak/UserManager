@@ -13,18 +13,17 @@ namespace UserManager
 {
     public class Program
     {
-        private static ILoggingBuilder _logging;
-        private static readonly ILogger _logger;
-
         public static void Main(string[] args)
         {
             var builder = CreateHostBuilder(args).Build();
 
-            X509Certificate2 cert = new X509Certificate2(Path.Combine(Directory.GetCurrentDirectory(), "cert.pfx"), "pass123");
-            Console.WriteLine("cert private key: " + cert.PrivateKey);
-
             try
             {
+                X509Certificate2 cert = new X509Certificate2(Path.Combine("/https/", "aspnetapp.pfx"), "crypticpassword");
+                Console.WriteLine("cert PrivateKey: " + cert.PrivateKey);
+                Console.WriteLine("cert IssuerName: " + cert.IssuerName);
+                Console.WriteLine("cert SerialNumber: " + cert.SerialNumber);
+
                 builder.Run();
             }
             catch (Exception ex)
