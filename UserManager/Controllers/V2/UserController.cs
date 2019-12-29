@@ -8,10 +8,11 @@ using UserManager.Data;
 using UserManager.Model;
 using UserManager.Tools;
 
-namespace UserManager.Controllers
+namespace UserManager.Controllers.V2
 {
     [ApiController]
     [Route("/api/[controller]")]
+    [ApiVersion("2")]
     public class UserController : ControllerBase
     {
         private DbContext _context;
@@ -49,6 +50,7 @@ namespace UserManager.Controllers
             return Created("User created", user);
         }
 
+        
         [HttpGet]
         [Route("Login")]
         public IActionResult Login(string login, string password)
@@ -56,10 +58,8 @@ namespace UserManager.Controllers
             var user = _context.Users.FirstOrDefault(u => u.Login == login);
             if (user == null || user.Password != password)
                 return BadRequest("Invalid login or password");
-            var token = TokenGenerator.Generate();
-            user.Token = token;
-
-            return Ok(token);
+            
+            return Ok();
         }
 
         [HttpGet]

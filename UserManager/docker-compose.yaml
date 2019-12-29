@@ -17,5 +17,4 @@ services:
       context: .
       dockerfile: dockerfile
     volumes: 
-      - E:\\https:/https:ro
-      #- C:\\Users\\kaisu\\.aspnet\\https:/https/:rw
+      - C:\\Users\\kaisu\\.aspnet\\https:/https/:rw

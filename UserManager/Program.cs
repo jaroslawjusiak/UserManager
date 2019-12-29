@@ -19,10 +19,10 @@ namespace UserManager
 
             try
             {
-                X509Certificate2 cert = new X509Certificate2(Path.Combine("/https/", "aspnetapp.pfx"), "crypticpassword");
-                Console.WriteLine("cert PrivateKey: " + cert.PrivateKey);
-                Console.WriteLine("cert IssuerName: " + cert.IssuerName);
-                Console.WriteLine("cert SerialNumber: " + cert.SerialNumber);
+                //X509Certificate2 cert = new X509Certificate2(Path.Combine("/https/", "aspnetapp.pfx"), "crypticpassword");
+                //Console.WriteLine("cert PrivateKey: " + cert.PrivateKey);
+                //Console.WriteLine("cert IssuerName: " + cert.IssuerName);
+                //Console.WriteLine("cert SerialNumber: " + cert.SerialNumber);
 
                 builder.Run();
             }

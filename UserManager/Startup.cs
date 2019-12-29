@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,6 +30,10 @@ namespace UserManager
         {
             services.AddControllers();
             services.AddSingleton<DbContext>();
+            services.AddApiVersioning(o => {
+            o.ApiVersionReader = new HeaderApiVersionReader("api-version");
+            o.AssumeDefaultVersionWhenUnspecified = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,7 +45,8 @@ namespace UserManager
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseSimpleAuthMiddleware();
+            
+            //app.UseSimpleAuthMiddleware();
 
             app.UseHttpsRedirection();
 
