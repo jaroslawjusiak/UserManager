@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,11 @@ namespace UserManager.Data
     public class DbContext
     {
         private List<User> _users;
+        private readonly IConfiguration _config;
 
-        public DbContext()
+        public DbContext(IConfiguration configuration)
         {
+            _config = configuration;
             _users = new List<User>();
             SeedUsers();
         }
@@ -35,7 +38,8 @@ namespace UserManager.Data
                 .RuleFor(u => u.Login, (f, u) => f.Person.UserName)
                 .RuleFor(u => u.Password, (f, u) => f.Internet.Password(f.Random.Int(8, 16), false));
 
-            _users.AddRange(userFaker.Generate(5));
+            var usersCount = _config.GetSection("InitialUsers").Get<int>();
+            _users.AddRange(userFaker.Generate(usersCount));
         }
 
         #endregion
