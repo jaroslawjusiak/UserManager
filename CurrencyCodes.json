@@ -1,0 +1,14 @@
+[
+	{
+		"CurrencyCode": "USD"
+	},
+	{
+		"CurrencyCode": "EUR"
+	},
+	{
+		"CurrencyCode": "GBP"
+	},
+	{
+		"CurrencyCode": "CZK"
+	}
+]
