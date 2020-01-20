@@ -6,59 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "Get CSV from Google Spreadsheet",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "93b8fbdc-c8b6-4c49-a075-dbadf2732cc5",
-						"exec": [
-							"pm.test.skip(\"Getting CSV file from Google Spreadsheet\", function(){",
-							"    console.log(\"https://docs.google.com/spreadsheets/u/0/d/:id/export?format=csv\");",
-							"    console.log(\"https://docs.google.com/spreadsheets/u/0/d/1xr9OtQMJv_qu3Zy2qsTk4g8VHjFf3Ok5UbUaveXn2MI/export?format=csv\");",
-							"} )",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://docs.google.com/spreadsheets/u/0/d/:id/export?format=csv",
-					"protocol": "https",
-					"host": [
-						"docs",
-						"google",
-						"com"
-					],
-					"path": [
-						"spreadsheets",
-						"u",
-						"0",
-						"d",
-						":id",
-						"export"
-					],
-					"query": [
-						{
-							"key": "format",
-							"value": "csv"
-						}
-					],
-					"variable": [
-						{
-							"key": "id",
-							"value": ""
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Latest For Base Currency",
 			"event": [
 				{
