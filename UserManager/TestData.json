@@ -1,0 +1,17 @@
+[
+    {
+        "CurrencyCode": "USD",
+        "CurrencyName": "United States Dollar",
+        "CurrencyValue": 3.89
+    },
+    {
+        "CurrencyCode": "EUR",
+        "CurrencyName": "Euro",
+        "CurrencyValue": 4.15
+    },
+    {
+        "CurrencyCode": "GBP",
+        "CurrencyName": "Great Britain Pound",
+        "CurrencyValue": 5.08
+    }
+]
